@@ -1,0 +1,42 @@
+export default [
+    {
+        id: 1,
+        songName: 'song1',
+        artist: 'artistName1',
+        dateStreamed: '2024/09/01',
+        streamCount: 1300,
+        userId: 15,
+    },
+    {
+        id: 2,
+        songName: 'song2',
+        artist: 'artistName2',
+        dateStreamed: '2024/09/10',
+        streamCount: 1360,
+        userId: 15,
+    },
+    {
+        id: 3,
+        songName: 'song3',
+        artist: 'artistName3',
+        dateStreamed: '2024/08/16',
+        streamCount: 1450,
+        userId: 15,
+    },
+    {
+        id: 4,
+        songName: 'song4',
+        artist: 'artistName4',
+        dateStreamed: '2024/08/21',
+        streamCount: 2000,
+        userId: 15,
+    },
+    {
+        id: 5,
+        songName: 'song5',
+        artist: 'artistName5',
+        dateStreamed: '2024/08/24',
+        streamCount: 1892,
+        userId: 15,
+    },
+];
