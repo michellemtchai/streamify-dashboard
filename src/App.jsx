@@ -1,7 +1,5 @@
-import setupServer from './server';
+import server from './server';
 import React, { useState, useEffect } from 'react';
-
-setupServer();
 
 function App() {
   let [metrics, setMetrics] = useState({});
@@ -10,11 +8,11 @@ function App() {
     fetch('/api/user/metrics')
       .then((response) => response.json())
       .then((json) => setMetrics(json));
-  }, []);
+  }, [server.shutdown]);
 
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <h1 className="text-3xl font-bold underline">Hello world</h1>
       <p>{JSON.stringify(metrics, null, 2)}</p>
     </>
   );
