@@ -24,6 +24,7 @@ export const lineChartOptions = (xAxisTitle, yAxisTitle, yMax) => ({
             },
         },
     },
+    ...hoverOptions,
 });
 
 export const userYMax = (data) => {
@@ -38,4 +39,28 @@ export const pieChartOptions = (format) => ({
             },
         },
     },
+    ...hoverOptions,
 });
+
+const hoverOptions = {
+    interaction: {
+        mode: 'index',
+    },
+    onHover: function (event) {
+        const points = this.getElementsAtEventForMode(
+            event,
+            'index',
+            {
+                axis: 'x',
+                intersect: true,
+            },
+            false,
+        );
+
+        if (points.length) {
+            event.native.target.style.cursor = 'pointer';
+        } else {
+            event.native.target.style.cursor = 'default';
+        }
+    },
+};
