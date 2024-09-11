@@ -1,5 +1,5 @@
 import server from './server';
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Page from './components/Page';
 import Visualization from './components/Visualization';
 import KeyMetrics from './components/KeyMetrics';

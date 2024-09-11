@@ -2,6 +2,7 @@ import Table from './Table';
 import Section from './Section';
 import { transformStreamData } from '../utils/transform';
 import { streamTableHeadings } from '../utils/constants';
+import { streamTableSorting } from '../utils/sorting';
 
 function RecentStreams({ data }) {
     return (
@@ -9,7 +10,9 @@ function RecentStreams({ data }) {
             <Table
                 className="m-4"
                 headings={streamTableHeadings}
-                data={transformStreamData(data)}
+                transform={transformStreamData}
+                data={data}
+                sorting={streamTableSorting}
             />
         </Section>
     );

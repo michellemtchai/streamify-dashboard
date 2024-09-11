@@ -2,6 +2,7 @@ import Table from './Table';
 import Figure from './Figure';
 import { transformStreamData } from '../utils/transform';
 import { streamTableHeadings } from '../utils/constants';
+import { streamTableSorting } from '../utils/sorting';
 
 function Top5Streams({ data }) {
     return (
@@ -9,7 +10,9 @@ function Top5Streams({ data }) {
             <Table
                 className="flex-1 m-3"
                 headings={streamTableHeadings}
-                data={transformStreamData(data)}
+                transform={transformStreamData}
+                data={data}
+                sorting={streamTableSorting}
             />
         </Figure>
     );
