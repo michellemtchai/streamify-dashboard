@@ -20,6 +20,10 @@ function NumberInput({ id, defaultValue, setInput, updateValue }) {
         if (defaultValue?.min || defaultValue?.max) {
             setMin(defaultValue?.min);
             setMax(defaultValue?.max);
+        } else {
+            let input = { min, max };
+            setInput(input);
+            updateValue(input);
         }
     }, []);
 
