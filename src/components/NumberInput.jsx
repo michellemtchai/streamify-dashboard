@@ -17,15 +17,10 @@ function NumberInput({ id, defaultValue, setInput, updateValue }) {
     };
 
     useEffect(() => {
-        if (defaultValue?.min) {
-            setMin(defaultValue.min);
+        if (defaultValue?.min || defaultValue?.max) {
+            setMin(defaultValue?.min);
+            setMax(defaultValue?.max);
         }
-        if (defaultValue?.max) {
-            setMax(defaultValue.max);
-        }
-        let input = { min, max };
-        setInput(input);
-        updateValue(input);
     }, []);
 
     return (
@@ -41,12 +36,14 @@ function NumberInput({ id, defaultValue, setInput, updateValue }) {
                 ariaValuetext={(state) =>
                     `${state.index == 0 ? 'Min' : 'Max'} ${state.valueNow}`
                 }
-                renderThumb={(props, state) => (
-                    <div key={props.key} {...props} />
-                )}
-                renderTrack={(props, state) => (
-                    <div key={props.key} {...props} />
-                )}
+                renderThumb={(props, state) => {
+                    let { key, ...others } = props;
+                    return <div key={key} {...others} />;
+                }}
+                renderTrack={(props, state) => {
+                    let { key, ...others } = props;
+                    return <div key={key} {...others} />;
+                }}
                 pearling
                 minDistance={10}
                 onChange={onChange}

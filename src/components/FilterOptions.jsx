@@ -61,14 +61,12 @@ function FilterOptions({ id, data, filtering, renderTable, options }) {
                     </tbody>
                 </table>
                 <button
-                    className="block my-2 mx-4 bg-slate-700 p-2 text-white rounded-md"
+                    className="block my-2 mx-9 bg-slate-700 p-2 text-white rounded-md"
                     onClick={applyFilter}
                 >
                     Apply Filters
                 </button>
                 {JSON.stringify(inputs)}
-                <br />
-                {selectedOptions}
             </details>
             {renderTable(filteredData)}
         </>
