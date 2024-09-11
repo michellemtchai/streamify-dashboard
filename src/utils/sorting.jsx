@@ -1,5 +1,5 @@
 export const sortNumber = (data, getVal) => {
-    return data.toSorted((a, b) => {
+    return [...data].sort((a, b) => {
         let aVal = getVal(a);
         let bVal = getVal(b);
         return aVal - bVal;
@@ -7,7 +7,7 @@ export const sortNumber = (data, getVal) => {
 };
 
 export const sortDate = (data, getVal) => {
-    return data.toSorted((a, b) => {
+    return [...data].sort((a, b) => {
         let aVal = new Date(getVal(a));
         let bVal = new Date(getVal(b));
         return aVal - bVal;
@@ -15,7 +15,7 @@ export const sortDate = (data, getVal) => {
 };
 
 export const sortGivenKey = (data, getVal) => {
-    return data.toSorted((a, b) => {
+    return [...data].sort((a, b) => {
         let aVal = getVal(a);
         let bVal = getVal(b);
         if (aVal < bVal) {

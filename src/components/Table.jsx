@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import Section from './Section';
+import { useState, useEffect } from 'react';
 
 function Table({ headings, data, sorting, transform, className }) {
     let [sortAsc, setSortAsc] = useState(true);
@@ -37,7 +36,7 @@ function Table({ headings, data, sorting, transform, className }) {
     };
 
     return (
-        <table className={`text-center ${className ?? ''}`}>
+        <table className={`text-center shadow-md ${className ?? ''}`}>
             <tbody>
                 <tr className="bg-slate-500 text-white">
                     {headings.map((heading, index) => (
