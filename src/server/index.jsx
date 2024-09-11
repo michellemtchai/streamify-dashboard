@@ -9,7 +9,7 @@ const server = new Server({
     routes() {
         this.get('/api/user/metrics', () => keyMetrics);
         this.get('/api/user/growth', () => userGrowth);
-        this.get('/api/user/revenues', () => revenueDistribution);
+        this.get('/api/user/revenue', () => revenueDistribution);
         this.get('/api/streams/top5', () => top5Streams);
         this.get('/api/streams/recent', () => recentStreams);
     },

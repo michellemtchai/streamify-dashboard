@@ -1,10 +1,10 @@
 export default {
-    totalUser: 1000,
-    activeUser: 643,
+    totalUsers: 1000,
+    activeUsers: 643,
     totalStreams: 43,
     revenue: 3600,
     topArtist: {
         id: 231,
-        userName: 'SomeTopArtistName',
+        username: 'SomeTopArtistName',
     },
 };
