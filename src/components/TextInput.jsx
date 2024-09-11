@@ -12,9 +12,12 @@ function TextInput({ id, defaultValue, setInput, updateValue }) {
         updateValue(value);
     };
     useEffect(() => {
-        setValue(defaultValue ?? value);
-        setInput(value);
-        updateValue(value);
+        if (defaultValue) {
+            setValue(defaultValue);
+        } else {
+            setInput(value);
+            updateValue(value);
+        }
     }, [defaultValue]);
     return (
         <Input
