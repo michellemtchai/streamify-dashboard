@@ -4,7 +4,7 @@ import MetricEntry from './MetricEntry';
 function KeyMetrics(props) {
   return (
     <Section title="Key Metrics">
-      <ul className="flex flex-row justify-between mx-4">
+      <ul className="flex flex-row justify-between mx-4 my-2">
         <MetricEntry
           label="Active Users"
           value={`${props.activeUsers}/${props.totalUsers}`}
