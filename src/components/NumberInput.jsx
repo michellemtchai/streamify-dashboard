@@ -26,7 +26,7 @@ function NumberInput({ id, defaultValue, setInput, updateValue }) {
         let input = { min, max };
         setInput(input);
         updateValue(input);
-    }, [defaultValue]);
+    }, []);
 
     return (
         <>
@@ -41,8 +41,12 @@ function NumberInput({ id, defaultValue, setInput, updateValue }) {
                 ariaValuetext={(state) =>
                     `${state.index == 0 ? 'Min' : 'Max'} ${state.valueNow}`
                 }
-                renderThumb={(props, state) => <div {...props}></div>}
-                renderTrack={(props, state) => <div {...props} />}
+                renderThumb={(props, state) => (
+                    <div key={props.key} {...props} />
+                )}
+                renderTrack={(props, state) => (
+                    <div key={props.key} {...props} />
+                )}
                 pearling
                 minDistance={10}
                 onChange={onChange}
