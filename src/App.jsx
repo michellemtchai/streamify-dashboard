@@ -30,7 +30,7 @@ function App() {
     fetch('/api/streams/recent')
       .then((response) => response.json())
       .then((json) => setRecent(json));
-  }, [server.shutdown]);
+  }, []);
 
   return (
     <Page>

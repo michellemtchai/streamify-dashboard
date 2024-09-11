@@ -4,12 +4,12 @@ import Section from './Section';
 function Table({ headings, data, sorting, transform, className }) {
     let [sortAsc, setSortAsc] = useState(true);
     let [sortIndex, setSortIndex] = useState(0);
-    let [sortedData, setSortedData] = useState(data);
+    let [sortedData, setSortedData] = useState([]);
 
     useEffect(() => {
         let res = sorting[sortIndex](data);
         setSortedData(transform(res));
-    }, []);
+    }, [data]);
 
     const setSort = (index) => {
         if (sortIndex == index) {
@@ -24,9 +24,16 @@ function Table({ headings, data, sorting, transform, className }) {
 
     const sortDir = (index) => {
         if (index == sortIndex) {
-            return sortAsc ? '▼' : '▲';
+            return sortAsc ? '▲' : '▼';
         }
         return '';
+    };
+
+    const headingStyle = (index) => {
+        if (index == sortIndex) {
+            return 'cursor-pointer bg-slate-700';
+        }
+        return 'cursor-pointer';
     };
 
     return (
@@ -36,7 +43,7 @@ function Table({ headings, data, sorting, transform, className }) {
                     {headings.map((heading, index) => (
                         <th
                             key={`heading-${index}`}
-                            className={index == sortIndex ? 'bg-slate-700' : ''}
+                            className={headingStyle(index)}
                             onClick={() => setSort(index)}
                         >
                             {heading} {sortDir(index)}
