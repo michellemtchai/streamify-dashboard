@@ -13,7 +13,7 @@ export default [
         artist: 'artistName2',
         dateStreamed: '2024/09/10',
         streamCount: 1360,
-        userId: 15,
+        userId: 18,
     },
     {
         id: 3,
@@ -21,7 +21,7 @@ export default [
         artist: 'artistName3',
         dateStreamed: '2024/08/16',
         streamCount: 1450,
-        userId: 15,
+        userId: 23,
     },
     {
         id: 4,
@@ -29,7 +29,7 @@ export default [
         artist: 'artistName4',
         dateStreamed: '2024/08/21',
         streamCount: 2000,
-        userId: 15,
+        userId: 30,
     },
     {
         id: 5,
@@ -37,7 +37,7 @@ export default [
         artist: 'artistName5',
         dateStreamed: '2024/08/24',
         streamCount: 1892,
-        userId: 15,
+        userId: 39,
     },
     {
         id: 6,
@@ -53,7 +53,7 @@ export default [
         artist: 'artistName7',
         dateStreamed: '2024/09/11',
         streamCount: 1358,
-        userId: 15,
+        userId: 17,
     },
     {
         id: 8,
@@ -61,7 +61,7 @@ export default [
         artist: 'artistName8',
         dateStreamed: '2024/08/17',
         streamCount: 1448,
-        userId: 15,
+        userId: 21,
     },
     {
         id: 9,
@@ -69,7 +69,7 @@ export default [
         artist: 'artistName9',
         dateStreamed: '2024/08/22',
         streamCount: 1998,
-        userId: 15,
+        userId: 75,
     },
     {
         id: 10,
@@ -77,6 +77,6 @@ export default [
         artist: 'artistName10',
         dateStreamed: '2024/08/25',
         streamCount: 1890,
-        userId: 15,
+        userId: 35,
     },
 ];

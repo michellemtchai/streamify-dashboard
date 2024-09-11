@@ -29,3 +29,13 @@ export const lineChartOptions = (xAxisTitle, yAxisTitle, yMax) => ({
 export const userYMax = (data) => {
     return data.totalUsers[data.totalUsers.length - 1];
 };
+
+export const pieChartOptions = (format) => ({
+    plugins: {
+        tooltip: {
+            callbacks: {
+                label: (ttItem) => `${ttItem.label}: ${format(ttItem.parsed)}`,
+            },
+        },
+    },
+});

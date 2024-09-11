@@ -11,7 +11,7 @@ export const transformStreamData = (data) => {
 export const transformRevenueData = (data, title) => {
     let keys = Object.keys(data);
     return {
-        labels: keys.map((key) => `${key}: $${data[key]}`),
+        labels: keys,
         datasets: [
             {
                 label: title,
@@ -20,6 +20,7 @@ export const transformRevenueData = (data, title) => {
                     'rgb(255, 99, 132)',
                     'rgb(54, 162, 235)',
                     'rgb(255, 205, 86)',
+                    'rgb(75, 192, 192)',
                 ],
                 hoverOffset: 4,
                 borderWidth: 1,

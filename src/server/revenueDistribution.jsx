@@ -1,5 +1,6 @@
 export default {
-    views: 2300,
-    streams: 120,
-    donations: 1180,
+    Views: 1500,
+    'Ad Revenue': 120,
+    Donations: 1180,
+    Sponsorships: 800,
 };
