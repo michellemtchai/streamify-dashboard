@@ -1,11 +1,11 @@
 import server from './server';
 import React, { useState, useEffect } from 'react';
+import Page from './components/Page';
+import Visualization from './components/Visualization';
 import KeyMetrics from './components/KeyMetrics';
 import UserGrowth from './components/UserGrowth';
 import Revenue from './components/Revenue';
-import Table from './components/Table';
-import { streamTableHeadings } from './utils/constants';
-import { transformStreamData } from './utils/transform';
+import RecentStreams from './components/RecentStreams';
 
 function App() {
   let [metrics, setMetrics] = useState({});
@@ -33,22 +33,11 @@ function App() {
   }, [server.shutdown]);
 
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+    <Page>
       <KeyMetrics {...metrics} />
-      <UserGrowth {...userGrowth} />
-      <Revenue {...revenue} />
-      <Table
-        title="Top 5 Streams"
-        headings={streamTableHeadings}
-        data={transformStreamData(top5)}
-      />
-      <Table
-        title="Recent Streams"
-        headings={streamTableHeadings}
-        data={transformStreamData(recent)}
-      />
-    </>
+      <Visualization revenue={revenue} userGrowth={userGrowth} top5={top5} />
+      <RecentStreams data={recent} />
+    </Page>
   );
 }
 

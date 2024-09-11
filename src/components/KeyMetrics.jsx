@@ -1,25 +1,19 @@
+import Section from './Section';
+import MetricEntry from './MetricEntry';
+
 function KeyMetrics(props) {
   return (
-    <section>
-      <h3>Key Metrics</h3>
-      <ul>
-        <ol>
-          <strong>Active Users</strong>
-          {props.activeUsers}/{props.totalUsers}
-        </ol>
-        <ol>
-          <strong>Total Streams</strong>
-          {props.totalStreams}
-        </ol>
-        <ol>
-          <strong>Revenue</strong>${props.revenue}
-        </ol>
-        <ol>
-          <strong>Top Artist</strong>
-          {props.topArtist?.username}
-        </ol>
+    <Section title="Key Metrics">
+      <ul className="flex flex-row justify-between mx-4">
+        <MetricEntry
+          label="Active Users"
+          value={`${props.activeUsers}/${props.totalUsers}`}
+        />
+        <MetricEntry label="Total Streams" value={props.totalStreams} />
+        <MetricEntry label="Revenue" value={`$${props.revenue}`} />
+        <MetricEntry label="Top Artist" value={props.topArtist?.username} />
       </ul>
-    </section>
+    </Section>
   );
 }
 

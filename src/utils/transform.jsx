@@ -42,7 +42,7 @@ export const transformUserData = (data) => {
             {
                 label: 'Active Users',
                 data: data.activeUsers,
-                fill: false,
+                fill: true,
                 borderColor: 'rgb(75, 192, 192)',
                 tension: 0.1,
             },
