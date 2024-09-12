@@ -1,3 +1,11 @@
+export const resourceUrls = [
+    '/api/user/metrics',
+    '/api/user/growth',
+    '/api/user/revenue',
+    '/api/streams/top5',
+    '/api/streams/recent',
+];
+
 export const streamTableHeadings = [
     'Song Name',
     'Artist',

@@ -3,7 +3,7 @@ import Section from './Section';
 import FilterOptions from './FilterOptions';
 import { streamTableFiltering } from '../utils/filtering';
 import {
-    streamTableFilterHeadings,
+    streamTableHeadings,
     streamTableFilterTypes,
 } from '../utils/constants';
 
@@ -17,7 +17,7 @@ function RecentStreams({ data }) {
                 renderTable={(filteredData) => (
                     <StreamTable className="m-4" data={filteredData} />
                 )}
-                labels={streamTableFilterHeadings}
+                labels={streamTableHeadings}
                 types={streamTableFilterTypes}
             />
         </Section>

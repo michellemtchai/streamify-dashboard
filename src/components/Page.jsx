@@ -6,7 +6,7 @@ function Page({ children }) {
           Streamify
         </h1>
       </header>
-      <article className="flex-1 w-4/5 m-auto max-w-5xl py-6">
+      <article className="flex-1 w-4/5 m-auto max-w-5xl py-6 h-full flex flex-col">
         {children}
       </article>
       <footer className="w-full bg-black">

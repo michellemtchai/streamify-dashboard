@@ -6,6 +6,8 @@ import KeyMetrics from './components/KeyMetrics';
 import UserGrowth from './components/UserGrowth';
 import Revenue from './components/Revenue';
 import RecentStreams from './components/RecentStreams';
+import Loader from './components/Loader';
+import { resourceUrls } from './utils/constants';
 
 function App() {
   let [metrics, setMetrics] = useState({});
@@ -13,30 +15,36 @@ function App() {
   let [revenue, setRevenue] = useState({});
   let [top5, setTop5] = useState([]);
   let [recent, setRecent] = useState([]);
+  let [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetch('/api/user/metrics')
-      .then((response) => response.json())
-      .then((json) => setMetrics(json));
-    fetch('/api/user/growth')
-      .then((response) => response.json())
-      .then((json) => setUserGrowth(json));
-    fetch('/api/user/revenue')
-      .then((response) => response.json())
-      .then((json) => setRevenue(json));
-    fetch('/api/streams/top5')
-      .then((response) => response.json())
-      .then((json) => setTop5(json));
-    fetch('/api/streams/recent')
-      .then((response) => response.json())
-      .then((json) => setRecent(json));
+    let actions = [setMetrics, setUserGrowth, setRevenue, setTop5, setRecent];
+    setLoading(true);
+    Promise.all(
+      resourceUrls.map((url) => {
+        return fetch(url).then((resp) => resp.json());
+      }),
+    ).then((results) => {
+      results.map((res, index) => actions[index](res));
+      setLoading(false);
+    });
   }, []);
 
   return (
     <Page>
-      <KeyMetrics {...metrics} />
-      <Visualization revenue={revenue} userGrowth={userGrowth} top5={top5} />
-      <RecentStreams data={recent} />
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <KeyMetrics {...metrics} />
+          <Visualization
+            revenue={revenue}
+            userGrowth={userGrowth}
+            top5={top5}
+          />
+          <RecentStreams data={recent} />
+        </>
+      )}
     </Page>
   );
 }
