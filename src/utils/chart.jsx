@@ -1,8 +1,8 @@
-export const lineChartOptions = (xAxisTitle, yAxisTitle, yMax) => ({
+export const lineChartOptions = (xAxisTitle, yAxisTitle, { min, max }) => ({
     scales: {
         y: {
-            beginAtZero: true,
-            suggestedMax: yMax,
+            suggestedMin: min,
+            suggestedMax: max,
         },
         xAxes: {
             title: {
@@ -27,8 +27,20 @@ export const lineChartOptions = (xAxisTitle, yAxisTitle, yMax) => ({
     ...hoverOptions,
 });
 
-export const userYMax = (data) => {
-    return data.totalUsers[data.totalUsers.length - 1];
+export const yMinMax = (data, keys) => {
+    let min = data[keys[0]][0];
+    let max = data[keys[0]][0];
+    for (let key of keys) {
+        for (let entry of data[key]) {
+            if (entry < min) {
+                min = entry;
+            }
+            if (entry > max) {
+                max = entry;
+            }
+        }
+    }
+    return { min, max };
 };
 
 export const pieChartOptions = (format) => ({

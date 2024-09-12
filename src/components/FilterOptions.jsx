@@ -5,7 +5,16 @@ import TextInput from './TextInput';
 import NumberInput from './NumberInput';
 import DateInput from './DateInput';
 
-function FilterOptions({ name, data, filtering, renderTable, labels, types }) {
+function FilterOptions({
+    name,
+    data,
+    filtering,
+    renderTable,
+    labels,
+    types,
+    min,
+    max,
+}) {
     let [options, setOptions] = useState({
         selected: [],
         inputs: {},
@@ -28,21 +37,23 @@ function FilterOptions({ name, data, filtering, renderTable, labels, types }) {
     };
 
     const renderOptions = {
-        string: (id, updateValue, defaultValue) => (
+        string: (id, updateValue, defaultValue, index) => (
             <TextInput
                 id={id}
                 updateValue={updateValue}
                 defaultValue={defaultValue}
             />
         ),
-        number: (id, updateValue, defaultValue) => (
+        number: (id, updateValue, defaultValue, index) => (
             <NumberInput
                 id={id}
                 updateValue={updateValue}
                 defaultValue={defaultValue}
+                minVal={min[index]}
+                maxVal={max[index]}
             />
         ),
-        date: (id, updateValue, defaultValue) => (
+        date: (id, updateValue, defaultValue, index) => (
             <DateInput
                 id={id}
                 updateValue={updateValue}

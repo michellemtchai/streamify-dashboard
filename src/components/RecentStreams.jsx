@@ -5,9 +5,16 @@ import { streamTableFiltering } from '../utils/filtering';
 import {
     streamTableHeadings,
     streamTableFilterTypes,
+    streamTableEntryKeys,
 } from '../utils/constants';
+import { dataMinMax } from '../utils/math';
 
 function RecentStreams({ data }) {
+    let { min, max } = dataMinMax(
+        data,
+        ['streamCount', 'userId'],
+        streamTableEntryKeys,
+    );
     return (
         <Section title="Recent Streams" className="flex flex-col">
             <FilterOptions
@@ -19,6 +26,8 @@ function RecentStreams({ data }) {
                 )}
                 labels={streamTableHeadings}
                 types={streamTableFilterTypes}
+                min={min}
+                max={max}
             />
         </Section>
     );

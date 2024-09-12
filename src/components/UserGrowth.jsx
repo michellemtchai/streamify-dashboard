@@ -1,5 +1,6 @@
 import { transformUserData } from '../utils/transform';
-import { lineChartOptions, userYMax } from '../utils/chart';
+import { userGrowthKeys } from '../utils/constants';
+import { lineChartOptions, yMinMax } from '../utils/chart';
 import { Line } from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 import Figure from './Figure';
@@ -13,7 +14,7 @@ function UserGrowth(props) {
                     options={lineChartOptions(
                         'Time',
                         'Number of Users',
-                        userYMax(props),
+                        yMinMax(props, userGrowthKeys),
                     )}
                 />
             )}

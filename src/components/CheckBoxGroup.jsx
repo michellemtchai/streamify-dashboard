@@ -43,6 +43,7 @@ function CheckBoxGroup({
                         `${name}-${index}-child`,
                         (value) => setValue(index, value),
                         inputs[index],
+                        index,
                     )}
                     setValue={setValue}
                     setSelected={onClick}

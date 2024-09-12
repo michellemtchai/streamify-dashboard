@@ -6,6 +6,16 @@ export const resourceUrls = [
     '/api/streams/recent',
 ];
 
+export const userGrowthKeys = ['totalUsers', 'activeUsers'];
+
+export const streamTableEntryKeys = [
+    'songName',
+    'artist',
+    'dateStreamed',
+    'streamCount',
+    'userId',
+];
+
 export const streamTableHeadings = [
     'Song Name',
     'Artist',

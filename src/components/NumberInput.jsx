@@ -1,33 +1,51 @@
 import { useState, useEffect } from 'react';
 import ReactSlider from 'react-slider';
 import LabelledEntry from './LabelledEntry';
+import { sliderValToSelectedVal, selectedValToSliderVal } from '../utils/math';
 
-function NumberInput({ id, defaultValue, updateValue }) {
+function NumberInput({ id, defaultValue, updateValue, minVal, maxVal }) {
     let [min, setMin] = useState(0);
     let [max, setMax] = useState(100);
+    let [calculatedValues, setCalculatedValues] = useState({
+        min: minVal,
+        max: maxVal,
+    });
     let minId = `${id}-min`;
     let maxId = `${id}-max`;
 
     const onChange = (values) => {
-        let input = { min: values[0], max: values[1] };
+        let calculatedMin = sliderValToSelectedVal(values[0], minVal, maxVal);
+        let calculatedMax = sliderValToSelectedVal(values[1], minVal, maxVal);
+        let input = { min: calculatedMin, max: calculatedMax };
         setMin(values[0]);
         setMax(values[1]);
+        setCalculatedValues(input);
         updateValue(input);
     };
 
     useEffect(() => {
         if (defaultValue?.min || defaultValue?.max) {
-            setMin(defaultValue?.min);
-            setMax(defaultValue?.max);
+            let calculatedMin = selectedValToSliderVal(
+                defaultValue?.min,
+                minVal,
+                maxVal,
+            );
+            let calculatedMax = selectedValToSliderVal(
+                defaultValue?.max,
+                minVal,
+                maxVal,
+            );
+            setMin(calculatedMin);
+            setMax(calculatedMax);
+            setCalculatedValues(defaultValue);
         } else {
-            let input = { min, max };
-            updateValue(input);
+            updateValue(calculatedValues);
         }
     }, []);
 
     return (
         <>
-            <LabelledEntry label="Min" value={min} />
+            <LabelledEntry label="Min" value={calculatedValues.min} />
             <ReactSlider
                 className="horizontal-slider flex-1"
                 thumbClassName="bg-slate-500 rounded-full w-5 h-5 text-sm text-white py-2 text-center top-2"
@@ -36,7 +54,11 @@ function NumberInput({ id, defaultValue, updateValue }) {
                 value={[min, max]}
                 ariaLabel={['Min', 'Max']}
                 ariaValuetext={(state) =>
-                    `${state.index == 0 ? 'Min' : 'Max'} ${state.valueNow}`
+                    `${state.index == 0 ? 'Min' : 'Max'} ${
+                        state.index == 0
+                            ? calculatedValues.min
+                            : calculatedValues.max
+                    }`
                 }
                 renderThumb={(props, state) => {
                     let { key, ...others } = props;
@@ -50,7 +72,7 @@ function NumberInput({ id, defaultValue, updateValue }) {
                 minDistance={10}
                 onChange={onChange}
             />
-            <LabelledEntry label="Max" value={max} />
+            <LabelledEntry label="Max" value={calculatedValues.max} />
         </>
     );
 }

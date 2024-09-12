@@ -1,11 +1,7 @@
+import { streamTableEntryKeys } from './constants';
+
 export const transformStreamData = (data) => {
-    return data.map((entry) => [
-        entry.songName,
-        entry.artist,
-        entry.dateStreamed,
-        entry.streamCount,
-        entry.userId,
-    ]);
+    return data.map((entry) => streamTableEntryKeys.map((key) => entry[key]));
 };
 
 export const transformRevenueData = (data, title) => {
