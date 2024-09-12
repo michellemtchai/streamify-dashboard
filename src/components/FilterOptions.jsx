@@ -66,7 +66,6 @@ function FilterOptions({ id, data, filtering, renderTable, options }) {
                 >
                     Apply Filters
                 </button>
-                {JSON.stringify(inputs)}
             </details>
             {renderTable(filteredData)}
         </>

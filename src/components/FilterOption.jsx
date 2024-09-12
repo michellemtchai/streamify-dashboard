@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import TextInput from './TextInput';
 import NumberInput from './NumberInput';
+import DateInput from './DateInput';
 
 function FilterOption({
     id,
@@ -25,6 +26,7 @@ function FilterOption({
         if (selected) {
             setValue(value, input);
         }
+        setInput(input);
     };
     const renderInput = () => {
         switch (type) {
@@ -32,7 +34,6 @@ function FilterOption({
                 return (
                     <TextInput
                         id={optionId}
-                        setInput={setInput}
                         updateValue={updateValue}
                         defaultValue={defaultValue}
                     />
@@ -41,13 +42,18 @@ function FilterOption({
                 return (
                     <NumberInput
                         id={optionId}
-                        setInput={setInput}
                         updateValue={updateValue}
                         defaultValue={defaultValue}
                     />
                 );
             case 'date':
-                return <span></span>;
+                return (
+                    <DateInput
+                        id={optionId}
+                        updateValue={updateValue}
+                        defaultValue={defaultValue}
+                    />
+                );
         }
     };
     return (
@@ -59,8 +65,8 @@ function FilterOption({
                     id={optionId}
                     name={id}
                     value={value}
-                    defaultChecked={selected}
-                    onClick={onClick}
+                    checked={selected}
+                    onChange={onClick}
                 />
                 <label
                     className="h-8 align-middle text-base cursor-pointer"

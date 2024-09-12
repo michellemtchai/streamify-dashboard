@@ -1,3 +1,5 @@
+import { dateToDateString, dateStringToInt, dateToInt } from './dates';
+
 export const filterByString = (entry, input, getVal) => {
     let val = getVal(entry);
     let formattedVal = val.toLowerCase();
@@ -12,15 +14,19 @@ export const filterByNumber = (entry, input, getVal) => {
 };
 
 export const filterByDate = (entry, input, getVal) => {
-    let val = new Date(getVal(entry));
-    let { type, start, end } = input;
-    let startDate = new Date(start ?? '');
-    let endDate = new Date(end ?? '');
+    let inputDate = getVal(entry);
+    let val = dateStringToInt(inputDate);
+    let { type, date, start, end } = input;
+    let selectedDate = dateToInt(date);
+    let startDate = dateToInt(start);
+    let endDate = dateToInt(end);
     switch (type) {
+        case 'on':
+            return val == selectedDate;
         case 'before':
-            return val < startDate;
+            return val < selectedDate;
         case 'after':
-            return val > endDate;
+            return val > selectedDate;
         case 'between':
             return val >= startDate && val <= endDate;
         default:

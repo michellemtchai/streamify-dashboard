@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
 import Input from './Input';
 
-function TextInput({ id, defaultValue, setInput, updateValue }) {
+function TextInput({ id, defaultValue, updateValue }) {
     let [value, setValue] = useState('');
     const onChange = (event) => {
         let newVal = event.target.value;
         setValue(newVal);
-        setInput(newVal);
     };
     const onBlur = () => {
         updateValue(value);
@@ -15,7 +14,6 @@ function TextInput({ id, defaultValue, setInput, updateValue }) {
         if (defaultValue) {
             setValue(defaultValue);
         } else {
-            setInput(value);
             updateValue(value);
         }
     }, [defaultValue]);

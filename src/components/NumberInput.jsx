@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import ReactSlider from 'react-slider';
 import LabelledEntry from './LabelledEntry';
 
-function NumberInput({ id, defaultValue, setInput, updateValue }) {
+function NumberInput({ id, defaultValue, updateValue }) {
     let [min, setMin] = useState(0);
     let [max, setMax] = useState(100);
     let minId = `${id}-min`;
@@ -12,7 +12,6 @@ function NumberInput({ id, defaultValue, setInput, updateValue }) {
         let input = { min: values[0], max: values[1] };
         setMin(values[0]);
         setMax(values[1]);
-        setInput(input);
         updateValue(input);
     };
 
@@ -22,7 +21,6 @@ function NumberInput({ id, defaultValue, setInput, updateValue }) {
             setMax(defaultValue?.max);
         } else {
             let input = { min, max };
-            setInput(input);
             updateValue(input);
         }
     }, []);
