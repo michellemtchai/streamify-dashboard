@@ -29,22 +29,25 @@ function CheckBoxOption({
         setInput(input);
     };
     return (
-        <li className="mx-4 flex">
-            <input
-                className="h-full my-3 align-top cursor-pointer"
-                type="checkbox"
-                id={optionId}
-                name={name}
-                value={value}
-                checked={checked}
-                onChange={onClick}
-            />
-            <label
-                className="m-1 w-36 align-middle text-base cursor-pointer"
-                htmlFor={optionId}
-            >
-                {label}
-            </label>
+        <li className="mx-4 flex flex-col md:flex-row">
+            <div className="w-36">
+                <input
+                    className="my-2 align-top cursor-pointer"
+                    type="checkbox"
+                    id={optionId}
+                    name={name}
+                    value={value}
+                    checked={checked}
+                    onChange={onClick}
+                />
+                <label
+                    className="m-1 align-middle text-base cursor-pointer"
+                    htmlFor={optionId}
+                >
+                    {label}
+                </label>
+            </div>
+
             <div className="flex flex-1">{checked && child}</div>
         </li>
     );

@@ -11,6 +11,7 @@ function StreamTable({ data, className }) {
             transform={transformStreamData}
             data={data}
             sorting={streamTableSorting}
+            minWidth={700}
         />
     );
 }

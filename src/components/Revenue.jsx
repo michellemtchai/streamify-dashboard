@@ -6,7 +6,7 @@ import Figure from './Figure';
 
 function Revenue(props) {
   return (
-    <Figure title="Revenue" className="w-2/5">
+    <Figure title="Revenue" className="mx-auto w-11/12 lg:w-2/5 align-top">
       <Pie
         data={transformRevenueData(props)}
         options={pieChartOptions((data) => `$${data}`)}

@@ -1,12 +1,12 @@
 function RadioOption({ id, name, value, label, checked, onChange, child }) {
     return (
-        <li className="flex flex-1">
+        <li className="flex flex-1 flex-col md:flex-row">
             <label
-                className="my-2 w-40 h-8 align-middle cursor-pointer"
+                className="md:my-2 w-40 md:h-8 align-middle cursor-pointer"
                 htmlFor={id}
             >
                 <input
-                    className="h-8 mx-2 align-middle cursor-pointer"
+                    className="md:h-8 mx-2 align-middle cursor-pointer"
                     type="radio"
                     id={id}
                     name={name}
@@ -16,7 +16,9 @@ function RadioOption({ id, name, value, label, checked, onChange, child }) {
                 />
                 {label}
             </label>
-            <div className="flex-1 my-3">{checked && child}</div>
+            <div className="flex-1 ml-8 md:ml-0 my-2 md:my-3">
+                {checked && child}
+            </div>
         </li>
     );
 }

@@ -6,7 +6,7 @@ import Figure from './Figure';
 
 function UserGrowth(props) {
     return (
-        <Figure title="User Growth">
+        <Figure title="User Growth" className="w-full">
             {Object.keys(props).length > 0 && (
                 <Line
                     data={transformUserData(props)}
