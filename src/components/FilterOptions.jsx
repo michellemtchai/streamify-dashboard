@@ -1,65 +1,74 @@
 import { useState, useEffect } from 'react';
 import { chainFilter } from '../utils/filtering';
-import FilterOption from './FilterOption';
+import CheckBoxGroup from './CheckBoxGroup';
+import TextInput from './TextInput';
+import NumberInput from './NumberInput';
+import DateInput from './DateInput';
 
-function FilterOptions({ id, data, filtering, renderTable, options }) {
-    let [selectedOptions, setSelectedOptions] = useState([]);
+function FilterOptions({ name, data, filtering, renderTable, labels, types }) {
+    let [options, setOptions] = useState({
+        selected: [],
+        inputs: {},
+    });
     let [selectedFilters, setSelectedFilters] = useState([]);
     let [filteredData, setFilteredData] = useState([]);
-    let [inputs, setInputs] = useState({});
 
     useEffect(() => {
         applyFilter();
     }, [data]);
 
     const applyFilter = () => {
-        let filterInputs = selectedOptions.map((option) => inputs[option]);
+        let filterInputs = options.selected.map(
+            (option) => options.inputs[option],
+        );
         let res = chainFilter(data, selectedFilters, filterInputs);
         setFilteredData(res);
     };
 
-    const setValue = (index, input) => {
-        setInputs({ ...inputs, [index]: input });
+    const setValue = (value) => {
+        setOptions(value);
         setSelectedFilters(
-            selectedOptions.map((optionIndex) => filtering[optionIndex]),
+            options.selected.map((optionIndex) => filtering[optionIndex]),
         );
     };
 
-    const onClick = (index) => {
-        let copy = [...selectedOptions];
-        if (selectedOptions.includes(index)) {
-            let elementIndex = selectedOptions.indexOf(index);
-            copy.splice(elementIndex, 1);
-        } else {
-            copy.push(index);
-        }
-        setSelectedOptions(copy);
-        setSelectedFilters(copy.map((optionIndex) => filtering[optionIndex]));
+    const renderOptions = {
+        string: (id, updateValue, defaultValue) => (
+            <TextInput
+                id={id}
+                updateValue={updateValue}
+                defaultValue={defaultValue}
+            />
+        ),
+        number: (id, updateValue, defaultValue) => (
+            <NumberInput
+                id={id}
+                updateValue={updateValue}
+                defaultValue={defaultValue}
+            />
+        ),
+        date: (id, updateValue, defaultValue) => (
+            <DateInput
+                id={id}
+                updateValue={updateValue}
+                defaultValue={defaultValue}
+            />
+        ),
     };
 
     return (
         <>
-            <details>
+            <details className="flex">
                 <summary className="mx-4 cursor-pointer text-lg font-bold">
                     Filter Options
                 </summary>
-                <table className="mx-4 flex-1 flex">
-                    <tbody className="w-full">
-                        {options.map((option, index) => (
-                            <FilterOption
-                                id={id}
-                                key={`${id}-${index}`}
-                                type={option.type}
-                                label={option.label}
-                                value={index}
-                                setValue={setValue}
-                                setSelected={onClick}
-                                defaultValue={inputs[index]}
-                                selected={selectedOptions.includes(index)}
-                            />
-                        ))}
-                    </tbody>
-                </table>
+                <CheckBoxGroup
+                    name={name}
+                    labels={labels}
+                    defaultValue={options.inputs}
+                    updateValue={setValue}
+                    components={types.map((type) => renderOptions[type])}
+                />
                 <button
                     className="block my-2 mx-9 bg-slate-700 p-2 text-white rounded-md"
                     onClick={applyFilter}
@@ -67,6 +76,7 @@ function FilterOptions({ id, data, filtering, renderTable, options }) {
                     Apply Filters
                 </button>
             </details>
+            {JSON.stringify(options)}
             {renderTable(filteredData)}
         </>
     );

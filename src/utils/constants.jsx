@@ -29,6 +29,22 @@ export const streamTableFilterOptions = [
     },
 ];
 
+export const streamTableFilterLabels = [
+    'Song Name',
+    'Artist',
+    'Date Streamed',
+    'Stream Count',
+    'User ID',
+];
+
+export const streamTableFilterTypes = [
+    'string',
+    'string',
+    'date',
+    'number',
+    'number',
+];
+
 export const dateInputTypes = ['on', 'before', 'after', 'between'];
 
 export const dateInputLabels = [
