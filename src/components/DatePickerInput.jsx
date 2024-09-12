@@ -5,7 +5,7 @@ function DatePickerInput({ value, onClick, className }, ref) {
         <span
             ref={ref}
             onClick={onClick}
-            className="px-7 py-2 rounded border-2 align-middle cursor-pointer"
+            className="px-7 py-2 rounded border-2 align-middle cursor-pointer min-w-32 h-12"
         >
             {value}
         </span>
