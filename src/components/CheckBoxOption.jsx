@@ -17,7 +17,6 @@ function CheckBoxOption({
     let optionId = `${id}-${value}`;
 
     const onClick = () => {
-        console.log('value', value);
         setSelected(value);
     };
     const onChange = (event) => {

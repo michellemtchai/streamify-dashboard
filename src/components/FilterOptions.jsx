@@ -10,7 +10,6 @@ function FilterOptions({ name, data, filtering, renderTable, labels, types }) {
         selected: [],
         inputs: {},
     });
-    let [selectedFilters, setSelectedFilters] = useState([]);
     let [filteredData, setFilteredData] = useState([]);
 
     useEffect(() => {
@@ -21,15 +20,11 @@ function FilterOptions({ name, data, filtering, renderTable, labels, types }) {
         let filterInputs = options.selected.map(
             (option) => options.inputs[option],
         );
+        let selectedFilters = options.selected.map(
+            (optionIndex) => filtering[optionIndex],
+        );
         let res = chainFilter(data, selectedFilters, filterInputs);
         setFilteredData(res);
-    };
-
-    const setValue = (value) => {
-        setOptions(value);
-        setSelectedFilters(
-            options.selected.map((optionIndex) => filtering[optionIndex]),
-        );
     };
 
     const renderOptions = {
@@ -66,7 +61,7 @@ function FilterOptions({ name, data, filtering, renderTable, labels, types }) {
                     name={name}
                     labels={labels}
                     defaultValue={options.inputs}
-                    updateValue={setValue}
+                    updateValue={setOptions}
                     components={types.map((type) => renderOptions[type])}
                 />
                 <button
@@ -76,7 +71,6 @@ function FilterOptions({ name, data, filtering, renderTable, labels, types }) {
                     Apply Filters
                 </button>
             </details>
-            {JSON.stringify(options)}
             {renderTable(filteredData)}
         </>
     );

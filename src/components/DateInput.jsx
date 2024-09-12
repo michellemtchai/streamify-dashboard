@@ -53,12 +53,18 @@ function DateInput({ id, updateValue, defaultValue }) {
         />,
     ];
     useEffect(() => {
-        let index = dateInputTypes.indexOf(defaultValue?.type);
-        if (index == -1) {
-            updateValue({ type: checkedVal, dates: dates[checkedVal] });
-        } else {
+        if (defaultValue) {
+            let index = dateInputTypes.indexOf(defaultValue.type);
+            let { type, ...defaultDates } = defaultValue;
+            let newDates = {
+                ...dates,
+                [type]: defaultDates,
+            };
             setCheckedIndex(index);
             setCheckedVal(dateInputTypes[index]);
+            setDates(newDates);
+        } else {
+            updateValue({ type: checkedVal, dates: dates[checkedVal] });
         }
     }, []);
     return (

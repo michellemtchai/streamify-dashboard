@@ -26,6 +26,7 @@ function CheckBoxGroup({
             copy.push(index);
         }
         setSelected(copy);
+        updateValue({ selected: copy, inputs });
     };
 
     return (
@@ -40,7 +41,8 @@ function CheckBoxGroup({
                     checked={selected.includes(index)}
                     child={components[index](
                         `${name}-${index}-child`,
-                        (value) => setValue(index, value, inputs[index]),
+                        (value) => setValue(index, value),
+                        inputs[index],
                     )}
                     setValue={setValue}
                     setSelected={onClick}
