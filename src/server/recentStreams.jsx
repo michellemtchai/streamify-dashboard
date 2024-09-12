@@ -73,8 +73,9 @@ export default [
     },
     {
         id: 10,
-        songName: 'song10',
-        artist: 'artistName10',
+        songName:
+            'song10 this is a super long name just for testing okay more word to fill the space',
+        artist: 'artistName10 this is a super long name just for testing okay more word to fill the space',
         dateStreamed: '2024/08/25',
         streamCount: 1890,
         userId: 35,
