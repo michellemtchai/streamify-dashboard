@@ -6,22 +6,20 @@ function RadioGroup({ name, data, defaultValue, updateValue, components }) {
         updateValue(value);
     };
     return (
-        <table className="my-2">
-            <tbody>
-                {data.map((entry, index) => (
-                    <RadioOption
-                        key={`${name}-${index}`}
-                        id={`${name}-${index}`}
-                        name={name}
-                        label={entry}
-                        value={index}
-                        onChange={onChange}
-                        checked={defaultValue == index}
-                        child={components[index]}
-                    />
-                ))}
-            </tbody>
-        </table>
+        <ul className="my-2 flex-1">
+            {data.map((entry, index) => (
+                <RadioOption
+                    key={`${name}-${index}`}
+                    id={`${name}-${index}`}
+                    name={name}
+                    label={entry}
+                    value={index}
+                    onChange={onChange}
+                    checked={defaultValue == index}
+                    child={components[index]}
+                />
+            ))}
+        </ul>
     );
 }
 
