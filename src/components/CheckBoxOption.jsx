@@ -30,20 +30,20 @@ function CheckBoxOption({
         setInput(input);
     };
     return (
-        <li className="mx-4">
+        <li className="mx-4 flex">
+            <input
+                className="h-full my-3 align-top cursor-pointer"
+                type="checkbox"
+                id={optionId}
+                name={name}
+                value={value}
+                checked={checked}
+                onChange={onClick}
+            />
             <label
-                className="w-36 h-8 align-middle text-base cursor-pointer"
+                className="m-1 w-36 align-middle text-base cursor-pointer"
                 htmlFor={optionId}
             >
-                <input
-                    className="h-8 m-1 align-middle cursor-pointer"
-                    type="checkbox"
-                    id={optionId}
-                    name={name}
-                    value={value}
-                    checked={checked}
-                    onChange={onClick}
-                />
                 {label}
             </label>
             <div className="flex flex-1">{checked && child}</div>
