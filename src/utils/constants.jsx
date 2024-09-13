@@ -5,7 +5,13 @@ export const resourceUrls = [
     '/api/streams/top5',
     '/api/streams/recent',
 ];
-
+export const dashBoardDataKeys = [
+    'metrics',
+    'userGrowth',
+    'revenue',
+    'top5',
+    'recent',
+];
 export const userGrowthKeys = ['totalUsers', 'activeUsers'];
 
 export const streamTableEntryKeys = [
