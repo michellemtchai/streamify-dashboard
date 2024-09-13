@@ -1,5 +1,5 @@
 import server from './server';
-import { useState, useEffect, Suspense, lazy } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import Page from './components/Page';
 import Loader from './components/Loader';
 import ServerError from './components/ServerError';

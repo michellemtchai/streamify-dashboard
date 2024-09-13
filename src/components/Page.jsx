@@ -1,3 +1,5 @@
+import React from 'react';
+
 function Page({ children }) {
   return (
     <main className="bg-slate-200 min-h-screen flex flex-col">

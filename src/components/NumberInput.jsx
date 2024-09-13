@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactSlider from 'react-slider';
 import LabelledEntry from './LabelledEntry';
 import { sliderValToSelectedVal, selectedValToSliderVal } from '../utils/math';

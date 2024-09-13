@@ -1,3 +1,4 @@
+import React from 'react';
 import StreamTable from './StreamTable';
 import Figure from './Figure';
 

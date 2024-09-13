@@ -1,3 +1,4 @@
+import React from 'react';
 import { transformUserData } from '../utils/transform';
 import { userGrowthKeys } from '../utils/constants';
 import { lineChartOptions, yMinMax } from '../utils/chart';

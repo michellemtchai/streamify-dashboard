@@ -1,3 +1,4 @@
+import React from 'react';
 import RadioOption from './RadioOption';
 
 function RadioGroup({ name, data, defaultValue, updateValue, components }) {

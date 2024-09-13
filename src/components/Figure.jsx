@@ -1,3 +1,5 @@
+import React from 'react';
+
 function Figure({ title, className, children }) {
     return (
         <figure className={className}>

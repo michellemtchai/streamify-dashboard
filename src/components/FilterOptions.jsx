@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { chainFilter } from '../utils/filtering';
 import CheckBoxGroup from './CheckBoxGroup';
 import TextInput from './TextInput';

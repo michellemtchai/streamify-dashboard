@@ -1,3 +1,4 @@
+import React from 'react';
 import Section from './Section';
 import MetricEntry from './MetricEntry';
 

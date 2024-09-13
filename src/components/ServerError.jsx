@@ -1,3 +1,5 @@
+import React from 'react';
+
 function ServerError() {
     return (
         <p className="flex justify-center flex-row m-auto items-center">

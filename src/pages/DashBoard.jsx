@@ -1,3 +1,4 @@
+import React from 'react';
 import Visualization from '../components/Visualization';
 import KeyMetrics from '../components/KeyMetrics';
 import UserGrowth from '../components/UserGrowth';

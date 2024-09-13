@@ -1,3 +1,4 @@
+import React from 'react';
 import { transformRevenueData } from '../utils/transform';
 import { pieChartOptions } from '../utils/chart';
 import { Pie } from 'react-chartjs-2';

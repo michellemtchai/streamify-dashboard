@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Table({ headings, data, sorting, transform, className, minWidth }) {
     let [sortAsc, setSortAsc] = useState(true);

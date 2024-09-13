@@ -1,3 +1,4 @@
+import React from 'react';
 import StreamTable from './StreamTable';
 import Section from './Section';
 import FilterOptions from './FilterOptions';

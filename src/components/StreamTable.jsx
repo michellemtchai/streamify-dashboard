@@ -1,3 +1,4 @@
+import React from 'react';
 import Table from './Table';
 import { transformStreamData } from '../utils/transform';
 import { streamTableHeadings } from '../utils/constants';

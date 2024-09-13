@@ -1,3 +1,5 @@
+import React from 'react';
+
 function Section({ title, className, children }) {
     return (
         <section
