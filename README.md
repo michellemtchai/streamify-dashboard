@@ -1,5 +1,7 @@
 # README
 
+[![Test](https://github.com/michellemtchai/streamify-dashboard/actions/workflows/main.yml/badge.svg)](https://github.com/michellemtchai/streamify-dashboard/actions/workflows/main.yml)
+
 ## Requirement
 
 You will need [`Docker`](https://www.docker.com/) to run this app.
