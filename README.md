@@ -1,8 +1,25 @@
-# React + Vite
+# README
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Requirement
 
-Currently, two official plugins are available:
+You will need [`Docker`](https://www.docker.com/) to run this app.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Running this app
+
+First, you will need to create an `.env` so that `Docker` knows where to look for its `docker-compose.yml` file. In order to do that, run the following:
+
+```
+cp ./docker/dev.env .env
+```
+
+Then, you need to run the following to get the server and the database running:
+
+```
+docker-compose up
+```
+
+You can access the app on your browser via the following url:
+
+```
+http://localhost:3000
+```
