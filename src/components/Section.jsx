@@ -1,8 +1,9 @@
 import React from 'react';
 
-function Section({ title, className, children }) {
+function Section({ testId, title, className, children }) {
     return (
         <section
+            data-testid={testId}
             className={`rounded-md shadow-md p-2 bg-white my-4 ${
                 className ?? ''
             }`}

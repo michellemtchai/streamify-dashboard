@@ -16,14 +16,28 @@ function RecentStreams({ data }) {
         ['streamCount', 'userId'],
         streamTableEntryKeys,
     );
+    const streamTableTestId = (filteredData) => {
+        // let temp = 'filtere';
+        return `recent-streams-${
+            filteredData.length < (data ?? []).length ? 'filtered-' : ''
+        }table`;
+    };
     return (
-        <Section title="Recent Streams" className="flex flex-col">
+        <Section
+            testId="recent-streams"
+            title="Recent Streams"
+            className="flex flex-col"
+        >
             <FilterOptions
                 name="recent-streams"
                 data={data}
                 filtering={streamTableFiltering}
                 renderTable={(filteredData) => (
-                    <StreamTable className="m-4" data={filteredData} />
+                    <StreamTable
+                        testId={streamTableTestId(filteredData)}
+                        className="m-4"
+                        data={filteredData}
+                    />
                 )}
                 labels={streamTableHeadings}
                 types={streamTableFilterTypes}

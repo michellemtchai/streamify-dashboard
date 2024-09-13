@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function TextInput({ id, defaultValue, updateValue }) {
+function TextInput({ testId, id, defaultValue, updateValue }) {
     let [value, setValue] = useState('');
     const onChange = (event) => {
         let newVal = event.target.value;
@@ -18,6 +18,7 @@ function TextInput({ id, defaultValue, updateValue }) {
     }, [defaultValue]);
     return (
         <input
+            data-testid={testId}
             type="text"
             className="rounded px-1 mx-4 py-none border border-slate-300 border-2 solid flex-1 top-1 relative"
             placeholder="Filter query..."

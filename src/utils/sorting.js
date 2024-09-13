@@ -1,4 +1,4 @@
-export const sortNumber = (data, getVal) => {
+export const sortNumber = (data = [], getVal) => {
     return [...data].sort((a, b) => {
         let aVal = getVal(a);
         let bVal = getVal(b);
@@ -6,7 +6,7 @@ export const sortNumber = (data, getVal) => {
     });
 };
 
-export const sortDate = (data, getVal) => {
+export const sortDate = (data = [], getVal) => {
     return [...data].sort((a, b) => {
         let aVal = new Date(getVal(a));
         let bVal = new Date(getVal(b));
@@ -14,7 +14,7 @@ export const sortDate = (data, getVal) => {
     });
 };
 
-export const sortGivenKey = (data, getVal) => {
+export const sortGivenKey = (data = [], getVal) => {
     return [...data].sort((a, b) => {
         let aVal = getVal(a);
         let bVal = getVal(b);

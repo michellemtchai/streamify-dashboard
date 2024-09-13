@@ -5,6 +5,7 @@ export const resourceUrls = [
     '/api/streams/top5',
     '/api/streams/recent',
 ];
+
 export const dashBoardDataKeys = [
     'metrics',
     'userGrowth',
@@ -12,6 +13,7 @@ export const dashBoardDataKeys = [
     'top5',
     'recent',
 ];
+
 export const userGrowthKeys = ['totalUsers', 'activeUsers'];
 
 export const streamTableEntryKeys = [
@@ -61,4 +63,9 @@ export const dateInputDefaults = {
         start: new Date(),
         end: new Date(),
     },
+};
+
+export const defaultFilterOptions = {
+    selected: [],
+    inputs: {},
 };

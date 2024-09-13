@@ -1,4 +1,4 @@
-export const dataMinMax = (data, keys, entryKeys) => {
+export const dataMinMax = (data = [], keys, entryKeys) => {
     let min = {};
     let max = {};
     for (let entry of data) {

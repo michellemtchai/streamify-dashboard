@@ -4,9 +4,10 @@ import { transformStreamData } from '../utils/transform';
 import { streamTableHeadings } from '../utils/constants';
 import { streamTableSorting } from '../utils/sorting';
 
-function StreamTable({ data, className }) {
+function StreamTable({ testId, data, className }) {
     return (
         <Table
+            testId={testId}
             className={className}
             headings={streamTableHeadings}
             transform={transformStreamData}

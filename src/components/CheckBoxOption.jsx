@@ -28,10 +28,18 @@ function CheckBoxOption({
         }
         setInput(input);
     };
+    const inputTestId = () => {
+        return `${name}-choice-${value}-${checked ? 'checked' : 'unchecked'}`;
+    };
+    const labelTestId = () => {
+        return `${name}-choice-${value}-label`;
+    };
+
     return (
         <li className="mx-4 flex flex-col md:flex-row">
             <div className="w-36">
                 <input
+                    data-testid={inputTestId()}
                     className="my-2 align-top cursor-pointer"
                     type="checkbox"
                     id={optionId}
@@ -41,6 +49,7 @@ function CheckBoxOption({
                     onChange={onClick}
                 />
                 <label
+                    data-testid={labelTestId()}
                     className="m-1 align-middle text-base cursor-pointer"
                     htmlFor={optionId}
                 >

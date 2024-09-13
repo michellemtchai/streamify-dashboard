@@ -34,7 +34,7 @@ export const filterByDate = (entry, input, getVal) => {
     }
 };
 
-export const chainFilter = (data, filters, inputs) => {
+export const chainFilter = (data = [], filters, inputs) => {
     let res = [];
     for (let entry of data) {
         let passFilter = true;

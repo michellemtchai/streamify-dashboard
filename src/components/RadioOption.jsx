@@ -1,9 +1,19 @@
 import React from 'react';
 
-function RadioOption({ id, name, value, label, checked, onChange, child }) {
+function RadioOption({
+    testId,
+    id,
+    name,
+    value,
+    label,
+    checked,
+    onChange,
+    child,
+}) {
     return (
         <li className="flex flex-1 flex-col lg:flex-row">
             <label
+                data-testid={testId}
                 className="lg:my-2 w-40 lg:h-8 align-middle cursor-pointer"
                 htmlFor={id}
             >
@@ -18,7 +28,10 @@ function RadioOption({ id, name, value, label, checked, onChange, child }) {
                 />
                 {label}
             </label>
-            <div className="flex-1 ml-8 lg:ml-0 my-2 lg:my-3">
+            <div
+                data-testid={`${testId}-input`}
+                className="flex-1 ml-8 lg:ml-0 my-2 lg:my-3"
+            >
                 {checked && child}
             </div>
         </li>

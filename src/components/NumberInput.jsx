@@ -3,7 +3,14 @@ import ReactSlider from 'react-slider';
 import LabelledEntry from './LabelledEntry';
 import { sliderValToSelectedVal, selectedValToSliderVal } from '../utils/math';
 
-function NumberInput({ id, defaultValue, updateValue, minVal, maxVal }) {
+function NumberInput({
+    testId,
+    id,
+    defaultValue,
+    updateValue,
+    minVal,
+    maxVal,
+}) {
     let [min, setMin] = useState(0);
     let [max, setMax] = useState(100);
     let [calculatedValues, setCalculatedValues] = useState({
@@ -43,9 +50,17 @@ function NumberInput({ id, defaultValue, updateValue, minVal, maxVal }) {
         }
     }, []);
 
+    const formatTestId = (label) => {
+        return `${testId}-${label}`;
+    };
+
     return (
         <>
-            <LabelledEntry label="Min" value={calculatedValues.min} />
+            <LabelledEntry
+                testId={formatTestId('min')}
+                label="Min"
+                value={calculatedValues.min}
+            />
             <ReactSlider
                 className="horizontal-slider flex-1"
                 thumbClassName="bg-slate-500 rounded-full w-5 h-5 text-sm text-white py-2 text-center top-2"
@@ -72,7 +87,11 @@ function NumberInput({ id, defaultValue, updateValue, minVal, maxVal }) {
                 minDistance={10}
                 onChange={onChange}
             />
-            <LabelledEntry label="Max" value={calculatedValues.max} />
+            <LabelledEntry
+                testId={formatTestId('max')}
+                label="Max"
+                value={calculatedValues.max}
+            />
         </>
     );
 }

@@ -7,7 +7,7 @@ import {
 } from '../utils/constants';
 import DatePicker from './DatePicker';
 
-function DateInput({ id, updateValue, defaultValue }) {
+function DateInput({ testId, id, updateValue, defaultValue }) {
     let [checkedIndex, setCheckedIndex] = useState(0);
     let [checkedVal, setCheckedVal] = useState(dateInputTypes[checkedIndex]);
     const [dates, setDates] = useState(dateInputDefaults);
@@ -69,6 +69,7 @@ function DateInput({ id, updateValue, defaultValue }) {
     }, []);
     return (
         <RadioGroup
+            testId={testId}
             name={`${id}-date`}
             data={dateInputLabels}
             defaultValue={checkedIndex}

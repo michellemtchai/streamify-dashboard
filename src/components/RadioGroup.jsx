@@ -1,15 +1,23 @@
 import React from 'react';
 import RadioOption from './RadioOption';
 
-function RadioGroup({ name, data, defaultValue, updateValue, components }) {
+function RadioGroup({
+    testId,
+    name,
+    data,
+    defaultValue,
+    updateValue,
+    components,
+}) {
     const onChange = (event) => {
         let value = event.target.value;
         updateValue(value);
     };
     return (
-        <ul className="my-2 flex-1">
+        <ul data-testid={testId} className="my-2 flex-1">
             {data.map((entry, index) => (
                 <RadioOption
+                    testId={`${testId}-option-${index}`}
                     key={`${name}-${index}`}
                     id={`${name}-${index}`}
                     name={name}
